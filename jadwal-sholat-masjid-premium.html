@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="21600">
+<title>Jadwal Sholat Masjid</title>
+<style>
+:root{--bg:#071d1b;--panel:rgba(12,51,46,.9);--panel2:rgba(20,76,66,.86);--gold:#e7bd5d;--cream:#fff8e5;--muted:#c9d7ce;--accent:#ffda79;--danger:#ffc5a8}
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;font-family:Arial,"Segoe UI",sans-serif;background:radial-gradient(circle at 20% 0%,#156a5d 0%,#0b3833 35%,var(--bg) 78%);color:var(--cream)}
+body{overflow:hidden}.app{min-height:100vh;padding:2.2vh 3vw;display:grid;grid-template-rows:auto 1fr auto;gap:1.7vh;position:relative}.app:before{content:"";position:absolute;inset:0;opacity:.13;background-image:radial-gradient(var(--gold) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+header,main,footer{position:relative;z-index:1}.topbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid rgba(231,189,93,.48);padding:0 0 1.4vh}.brand{font-weight:800;letter-spacing:.09em;font-size:clamp(17px,1.5vw,30px);color:var(--gold)}.brand small{display:block;letter-spacing:.03em;font-size:.58em;color:var(--muted);margin-top:.35em}.arabic{font-family:Tahoma,Arial,sans-serif;font-size:clamp(22px,2.1vw,43px);font-weight:bold;color:var(--gold);text-align:center}.date-top{text-align:right;font-size:clamp(13px,1.15vw,23px);line-height:1.45;color:var(--muted)}
+main{display:grid;grid-template-columns:1.05fr 1.55fr;gap:1.7vw;min-height:0}.hero{background:linear-gradient(140deg,rgba(20,81,70,.98),rgba(5,34,31,.96));border:1px solid rgba(231,189,93,.55);border-radius:24px;padding:2.3vh 2.2vw;display:grid;grid-template-rows:auto auto 1fr;overflow:hidden}.label{color:var(--gold);font-weight:bold;letter-spacing:.12em;text-transform:uppercase;font-size:clamp(11px,.95vw,19px)}.clock{font-family:"Courier New",monospace;font-weight:bold;font-size:clamp(55px,8.3vw,145px);line-height:1.03;letter-spacing:-.08em;text-shadow:0 5px 20px rgba(0,0,0,.32);white-space:nowrap}.next-box{align-self:end;border-top:1px solid rgba(231,189,93,.4);padding-top:2vh}.next-name{font-size:clamp(27px,3vw,52px);font-weight:800;color:var(--accent)}.next-detail{font-size:clamp(16px,1.5vw,27px);color:var(--muted);margin-top:.45em}.countdown{font-family:"Courier New",monospace;font-size:clamp(36px,4.4vw,75px);font-weight:bold;margin-top:.15em}
+.schedule{display:grid;grid-template-rows:auto 1fr;gap:1.2vh}.schedule-title{font-weight:bold;color:var(--gold);font-size:clamp(17px,1.5vw,29px);padding-left:.3vw}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:1vw;min-height:0}.card{background:var(--panel);border:1px solid rgba(255,255,255,.13);border-radius:19px;padding:2.1vh 1.05vw;display:flex;flex-direction:column;justify-content:space-between;min-width:0}.card.current{background:linear-gradient(180deg,#8b6721,#594116);border:2px solid var(--gold);box-shadow:0 0 30px rgba(231,189,93,.25)}.card .pname{font-size:clamp(15px,1.45vw,26px);font-weight:bold;text-align:center}.card .ptime{font-family:"Courier New",monospace;font-size:clamp(21px,2.35vw,43px);font-weight:bold;text-align:center;color:var(--cream);white-space:nowrap}.card .iq{font-size:clamp(10px,.87vw,16px);color:var(--muted);text-align:center;line-height:1.35}.card.current .iq{color:#fff0bd}
+footer{background:rgba(0,0,0,.24);border:1px solid rgba(231,189,93,.34);border-radius:18px;min-height:15vh;padding:1.7vh 2.3vw;display:grid;grid-template-columns:auto 1fr auto;gap:1.6vw;align-items:center}.quote-icon{font-size:clamp(34px,4vw,70px);color:var(--gold);font-family:Georgia,serif}.quote{min-width:0}.quote-ar{font-family:Tahoma,Arial,sans-serif;font-size:clamp(17px,1.8vw,33px);line-height:1.55;text-align:right;color:var(--cream)}.quote-id{font-size:clamp(12px,1.12vw,21px);color:var(--muted);margin-top:.45vh}.quote-ref{font-size:clamp(12px,1.05vw,20px);font-weight:bold;color:var(--gold);text-align:right;max-width:18vw}.status{position:absolute;bottom:.3vh;right:3.2vw;color:#9ebdb0;font-size:10px;opacity:.8}
+@media(max-width:900px){body{overflow:auto}.app{padding:14px;gap:14px}.topbar{grid-template-columns:1fr auto}.arabic{display:none}.date-top{font-size:12px}main{grid-template-columns:1fr;gap:14px}.hero{min-height:290px}.cards{grid-template-columns:repeat(5,minmax(110px,1fr));overflow-x:auto;padding-bottom:4px}.card{min-height:150px}footer{grid-template-columns:auto 1fr}.quote-ref{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar"><div class="brand" id="masjidName">MASJID AL-AMANAH<small id="location">Malang, Jawa Timur</small></div><div class="arabic">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div><div class="date-top"><div id="gregorianDate">-</div><div id="hijriDate">-</div></div></header>
+<main>
+<section class="hero"><div><div class="label">Waktu Sekarang (WIB)</div><div class="clock" id="clock">00:00:00</div></div><div class="next-box"><div class="label">Agenda Berikutnya</div><div class="next-name" id="nextName">Memuat jadwal...</div><div class="next-detail" id="nextDetail">Mohon tunggu</div><div class="countdown" id="countdown">--:--:--</div></div></section>
+<section class="schedule"><div class="schedule-title">JADWAL SHOLAT HARI INI</div><div class="cards" id="prayerCards"><div class="card"><div class="pname">Memuat</div><div class="ptime">--:--</div></div></div></section>
+</main>
+<footer><div class="quote-icon">❝</div><div class="quote"><div class="quote-ar" id="quoteArabic">...</div><div class="quote-id" id="quoteIndonesian">Memuat ayat pilihan...</div></div><div class="quote-ref" id="quoteRef">-</div></footer>
+<div class="status" id="status">Memuat data...</div>
+</div>
+<script>
+const CONFIG={city:'Malang',country:'Indonesia',method:11,masjidName:'MASJID AL-AMANAH',location:'Malang, Jawa Timur',timeZone:'Asia/Jakarta',iqomahDelays:{Fajr:10,Dhuhr:10,Asr:10,Maghrib:5,Isha:10}};
+const PRAYERS=[['Fajr','Subuh'],['Dhuhr','Dzuhur'],['Asr','Ashar'],['Maghrib','Maghrib'],['Isha','Isya']];
+const QUOTES=[
+ {ar:'إِنَّ مَعَ الْعُسْرِ يُسْرًا',id:'Sesungguhnya beserta kesulitan ada kemudahan.',ref:'QS. Al-Insyirah: 6'},
+ {ar:'وَاذْكُر رَّبَّكَ إِذَا نَسِيتَ',id:'Ingatlah Tuhanmu apabila engkau lupa.',ref:'QS. Al-Kahf: 24'},
+ {ar:'إِنَّ اللَّهَ مَعَ الصَّابِرِينَ',id:'Sesungguhnya Allah bersama orang-orang yang sabar.',ref:'QS. Al-Baqarah: 153'},
+ {ar:'فَاذْكُرُونِي أَذْكُرْكُمْ',id:'Ingatlah kepada-Ku, niscaya Aku ingat kepadamu.',ref:'QS. Al-Baqarah: 152'},
+ {ar:'وَقُل رَّبِّ زِدْنِي عِلْمًا',id:'Ya Tuhanku, tambahkanlah ilmu kepadaku.',ref:'QS. Taha: 114'},
+ {ar:'لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ',id:'Janganlah kamu berputus asa dari rahmat Allah.',ref:'QS. Az-Zumar: 53'},
+ {ar:'خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ',id:'Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia.',ref:'Hadis riwayat ath-Thabrani'},
+ {ar:'مَنْ لَا يَرْحَمْ لَا يُرْحَمْ',id:'Siapa yang tidak menyayangi, tidak akan disayangi.',ref:'Hadis riwayat al-Bukhari dan Muslim'}
+];
+let timings=null, nextInfo=null, lastDateKey='';
+function cleanTime(v){return String(v||'').match(/\d{1,2}:\d{2}/)?.[0]||'--:--'}
+function now(){return new Date()}
+function dateKey(d=new Date()){return new Intl.DateTimeFormat('en-CA',{timeZone:CONFIG.timeZone,year:'numeric',month:'2-digit',day:'2-digit'}).format(d)}
+function timeToday(time){const [h,m]=cleanTime(time).split(':').map(Number);const d=new Date();d.setHours(h,m,0,0);return d}
+function fmtClock(d){return d.toLocaleTimeString('id-ID',{timeZone:CONFIG.timeZone,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})}
+function fmtDate(d){return d.toLocaleDateString('id-ID',{timeZone:CONFIG.timeZone,weekday:'long',day:'numeric',month:'long',year:'numeric'})}
+function formatDuration(ms){ms=Math.max(0,ms);const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000),s=Math.floor(ms%60000/1000);return [h,m,s].map(x=>String(x).padStart(2,'0')).join(':')}
+function setQuote(){const minute=Math.floor(Date.now()/60000);const q=QUOTES[minute%QUOTES.length];document.getElementById('quoteArabic').textContent=q.ar;document.getElementById('quoteIndonesian').textContent=q.id;document.getElementById('quoteRef').textContent=q.ref}
+async function fetchPrayerTimes(){try{const url='https://api.aladhan.com/v1/timingsByCity?city='+encodeURIComponent(CONFIG.city)+'&country='+encodeURIComponent(CONFIG.country)+'&method='+CONFIG.method;const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const data=await r.json();if(data.code!==200)throw Error('Respons API tidak valid');timings=data.data.timings;const h=data.data.date.hijri;document.getElementById('hijriDate').textContent=h.day+' '+h.month.en+' '+h.year+' H';document.getElementById('status').textContent='Jadwal diperbarui '+fmtClock(new Date());render();}catch(e){document.getElementById('status').textContent='Gagal mengambil jadwal. Mencoba kembali otomatis.';setTimeout(fetchPrayerTimes,60000)}}
+function calculateNext(){if(!timings)return null;const current=now();for(const [key,label] of PRAYERS){const adhan=timeToday(timings[key]);const iqomah=new Date(adhan.getTime()+CONFIG.iqomahDelays[key]*60000);if(current<iqomah)return{key,label,adhan,iqomah,phase:current<adhan?'azan':'iqomah'}}const tomorrowFajr=timeToday(timings.Fajr);tomorrowFajr.setDate(tomorrowFajr.getDate()+1);return{key:'Fajr',label:'Subuh',adhan:tomorrowFajr,iqomah:new Date(tomorrowFajr.getTime()+CONFIG.iqomahDelays.Fajr*60000),phase:'azan'} }
+function render(){nextInfo=calculateNext();if(!timings||!nextInfo)return;const active=nextInfo.key;document.getElementById('prayerCards').innerHTML=PRAYERS.map(([key,label])=>{const t=cleanTime(timings[key]);const iq=cleanTime((()=>{const d=timeToday(t);d.setMinutes(d.getMinutes()+CONFIG.iqomahDelays[key]);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')})());return '<div class="card '+(key===active?'current':'')+'"><div class="pname">'+label+'</div><div class="ptime">'+t+'</div><div class="iq">Iqomah '+iq+' WIB</div></div>'}).join('')}
+function tick(){const d=now();document.getElementById('clock').textContent=fmtClock(d);document.getElementById('gregorianDate').textContent=fmtDate(d);const key=dateKey(d);if(key!==lastDateKey){lastDateKey=key;fetchPrayerTimes()}if(!nextInfo)return;const target=nextInfo.phase==='azan'?nextInfo.adhan:nextInfo.iqomah;const label=nextInfo.phase==='azan'?'Menuju waktu '+nextInfo.label:'Iqomah '+nextInfo.label;document.getElementById('nextName').textContent=label;document.getElementById('nextDetail').textContent=(nextInfo.phase==='azan'?'Azan ':'Iqomah ')+cleanTime(nextInfo.phase==='azan'?timings[nextInfo.key]:String(nextInfo.iqomah.getHours()).padStart(2,'0')+':'+String(nextInfo.iqomah.getMinutes()).padStart(2,'0'))+' WIB';document.getElementById('countdown').textContent=formatDuration(target-d);if(target-d<=0){render()}}
+function init(){document.getElementById('masjidName').firstChild.nodeValue=CONFIG.masjidName;document.getElementById('location').textContent=CONFIG.location;lastDateKey=dateKey();setQuote();fetchPrayerTimes();tick();setInterval(tick,1000);setInterval(setQuote,60000);setInterval(fetchPrayerTimes,6*60*60*1000)}init();
+</script>
+</body>
+</html>
