@@ -56,7 +56,7 @@ function cleanTime(v){return String(v||'').match(/\d{1,2}:\d{2}/)?.[0]||'--:--'}
 function now(){return new Date()}
 function dateKey(d=new Date()){return new Intl.DateTimeFormat('en-CA',{timeZone:CONFIG.timeZone,year:'numeric',month:'2-digit',day:'2-digit'}).format(d)}
 function timeToday(time){const [h,m]=cleanTime(time).split(':').map(Number);const d=new Date();d.setHours(h,m,0,0);return d}
-function fmtClock(d){return d.toLocaleTimeString('id-ID',{timeZone:CONFIG.timeZone,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})}
+function fmtClock(d){return d.toLocaleTimeString('en-GB',{timeZone:CONFIG.timeZone,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})}
 function fmtDate(d){return d.toLocaleDateString('id-ID',{timeZone:CONFIG.timeZone,weekday:'long',day:'numeric',month:'long',year:'numeric'})}
 function formatDuration(ms){ms=Math.max(0,ms);const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000),s=Math.floor(ms%60000/1000);return [h,m,s].map(x=>String(x).padStart(2,'0')).join(':')}
 function setQuote(){const minute=Math.floor(Date.now()/60000);const q=QUOTES[minute%QUOTES.length];document.getElementById('quoteArabic').textContent=q.ar;document.getElementById('quoteIndonesian').textContent=q.id;document.getElementById('quoteRef').textContent=q.ref}
